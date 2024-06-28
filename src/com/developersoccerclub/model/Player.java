@@ -1,10 +1,18 @@
 package com.developersoccerclub.model;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author leandro
  */
-public class Player {
+@Entity
+@Table(name = "tbplayer")
+public class Player implements Serializable {
+    @Id
     private Long id;
     private String nome;
     private String sobrenome;
