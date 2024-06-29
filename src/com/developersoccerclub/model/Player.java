@@ -2,7 +2,10 @@ package com.developersoccerclub.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -11,8 +14,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbplayer")
+@SequenceGenerator(name = "seq_tbplayer", sequenceName = "seq_tbplayer", initialValue = 1)
 public class Player implements Serializable {
     @Id
+    @GeneratedValue(generator = "seq_tbplayer", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
     private String sobrenome;
@@ -31,6 +36,14 @@ public class Player implements Serializable {
         this.salario = salario;
     }
 
+    public Player(String nome, String sobrenome, String cpf, String posicao, float salario) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.posicao = posicao;
+        this.salario = salario;
+    }
+      
     public Long getId() {
         return id;
     }
@@ -77,6 +90,11 @@ public class Player implements Serializable {
 
     public void setSalario(float salario) {
         this.salario = salario;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", posicao=" + posicao + ", salario=" + salario + '}';
     }
     
     
