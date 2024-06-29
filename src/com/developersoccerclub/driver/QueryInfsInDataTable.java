@@ -14,7 +14,9 @@ public class QueryInfsInDataTable {
         EntityManager em = JpaUtil.openConnection();
         em.getTransaction().begin();
         
-        String query = "SELECT p FROM Player p";
+        //String query = "SELECT p FROM Player p";
+        //String query = "SELECT p FROM Player p WHERE p.id = 301";
+        String query = "SELECT p FROM Player p WHERE p.nome LIKE '%A%'";
         List<Player> players = 
         em.createQuery(query).getResultList();
         System.out.println("Saida: " + players);

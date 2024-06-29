@@ -5,6 +5,11 @@ querys for postgres sgdb
 select * from information_schema.tables where table_schema = 'public';
 select * from tbplayer;
 
+-------------------------
+stop in
+(JPQL) Consultando atividade por atributo no BD
+----------------------------------------------------------
+
 code part in Java Lang
 ... 001
 public static void main(String[] args) {
