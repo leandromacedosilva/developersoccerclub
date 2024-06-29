@@ -91,5 +91,12 @@ public class Player implements Serializable {
     public void setSalario(float salario) {
         this.salario = salario;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", posicao=" + posicao + ", salario=" + salario + '}';
+    }
+    
+    
     
 }
