@@ -1,6 +1,7 @@
 package com.developersoccerclub.driver;
 
 import com.developersoccerclub.model.Player;
+import com.developersoccerclub.model.util.JpaUtil;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.persistence.Persistence;
  */
 public class InsertDataInTable {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("DeveloperSoccerClubPU");
+        
         
         Scanner input = new Scanner(System.in);
         PrintStream so = System.out;
@@ -34,7 +35,7 @@ public class InsertDataInTable {
         
         Player player = new Player(nome, sobrenome, cpf, posicao, salario);
                 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = JpaUtil.openConnection();
         em.getTransaction().begin();
         
         
@@ -43,6 +44,6 @@ public class InsertDataInTable {
         
         em.getTransaction().commit();
         
-        emf.close();
+        JpaUtil.closeConnection();
     }
 }
