@@ -40,6 +40,10 @@ public class Salary implements Serializable {
         this.cbf = cbf;
     }
 
+    public Salary(float valor) {
+        this.valor = valor;
+    }
+
     public Salary(float valor, float inss, float ir, float fifa, float cbf) {
         this.valor = valor;
         this.inss = inss;
@@ -49,7 +53,11 @@ public class Salary implements Serializable {
     }
     
     public void descontos() {
-        
+        //INSS 8%
+        System.out.println("VALOR DESCONTO INSS: " + (this.valor * 0.08));
+        System.out.println("VALOR DESCONTO IR: " + (this.valor * 0.07));
+        System.out.println("VALOR DESCONTO FIFA: " + (this.valor * 0.06));
+        System.out.println("VALOR DESCONTO CBF: " + (this.valor * 0.05));
     }
 
     public Long getId() {

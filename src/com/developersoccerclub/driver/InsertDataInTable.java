@@ -40,16 +40,17 @@ public class InsertDataInTable {
         so.println("INFORME OS DADOS DO SALARIO");
         so.print("SALARIO: ");
         float valor = input.nextFloat();
-        so.print("INSS: ");
-        float inss = input.nextFloat();
-        so.print("IR: ");
-        float ir = input.nextFloat();
-        so.print("FIFA: ");
-        Float fifa = input.nextFloat();
-        so.print("CBF: ");
-        Float cbf = input.nextFloat();
+//        so.print("INSS: ");;
+//        float inss = input.nextFloat();
+//        so.print("IR: ");
+//        float ir = input.nextFloat();
+//        so.print("FIFA: ");
+//        Float fifa = input.nextFloat();
+//        so.print("CBF: ");
+//        Float cbf = input.nextFloat();
         
-        Salary salary = new Salary(valor, inss, ir, fifa, cbf);
+        Salary salary = new Salary(valor);
+        salary.descontos();
         
         so.println("INFORME OS DADOS DO JOGADOR");
         
