@@ -45,7 +45,6 @@ public class InsertDataInTable {
         so.print("SALARIO: ");
         float valor = input.nextFloat();
         so.print("INSS: ");
-        input.nextLine();
         float inss = input.nextFloat();
         so.print("IR: ");
         float ir = input.nextFloat();
@@ -59,6 +58,7 @@ public class InsertDataInTable {
         so.println("INFORME OS DADOS DO JOGADOR");
         
         so.print("NOME: ");
+        input.nextLine();
         String nome = input.nextLine();
         
         so.print("SOBRENOME: ");

@@ -52,8 +52,6 @@ public class Player implements Serializable {
         this.posicao = posicao;
     }
     
-    
-
     public Player(String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress) {
         this.nome = nome;
         this.sobrenome = sobrenome;

@@ -1,14 +1,16 @@
 /*
 
 querys for postgres sgdb
-.............................
+.........................................................................
 select * from information_schema.tables where table_schema = 'public';
 select * from tbplayer;
-
--------------------------
+select * from tbaddress;
+select * from tbsalary;
+select * from tbcoach;
+--------------------------------------------------
 stop in
 (JPQL) Consultando atividade por atributo no BD
-----------------------------------------------------------
+-----------------------------------------------------------
 
 code part in Java Lang
 ... 001

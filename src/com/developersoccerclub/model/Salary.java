@@ -47,6 +47,10 @@ public class Salary implements Serializable {
         this.fifa = fifa;
         this.cbf = cbf;
     }
+    
+    public void descontos() {
+        
+    }
 
     public Long getId() {
         return id;
