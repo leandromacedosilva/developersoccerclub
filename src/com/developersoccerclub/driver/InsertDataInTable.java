@@ -6,12 +6,8 @@ import com.developersoccerclub.model.Player;
 import com.developersoccerclub.model.Salary;
 import com.developersoccerclub.model.util.JpaUtil;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
@@ -71,9 +67,9 @@ public class InsertDataInTable {
         String posicao = input.nextLine();
                 
         Player player = new Player(nome, sobrenome, cpf, posicao);
-        //player.setSalary(salary);
+        player.setSalary(salary);
         //player.setCoach(coach);
-        //player.setEddress(eddress);
+        player.setEddress(eddress);
         
         so.println("INFORME OS DADOS DO TECNICO");
         so.print("NOME: ");
@@ -86,9 +82,9 @@ public class InsertDataInTable {
         String rg = input.nextLine();
                 
         Coach coach = new Coach(nome1, sobrenome1, cpf1, rg);
-        //coach.setSalary(salary);
-        //coach.setPlayer(player);
-        //coach.setEddress(eddress);
+        coach.setSalary(salary);
+        coach.setPlayer(player);
+        coach.setEddress(eddress);
         
         EntityManager em = JpaUtil.openConnection();
         em.getTransaction().begin();
