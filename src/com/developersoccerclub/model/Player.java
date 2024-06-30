@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,59 +25,51 @@ public class Player implements Serializable {
     private String sobrenome;
     private String cpf;
     private String posicao;
-    private float salario;
-    @OneToMany
+    @OneToOne
+    private Salary salary;
+    @OneToOne
+    private Coach coach;
+    @OneToOne
     private Eddress eddress;
     
     public Player() {}
 
-    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, float salario) {
+    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.posicao = posicao;
-        this.salario = salario;
-    }
-
-    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, float salario, Eddress eddress) {
-        this.id = id;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.cpf = cpf;
-        this.posicao = posicao;
-        this.salario = salario;
+        this.salary = salary;
+        this.coach = coach;
         this.eddress = eddress;
     }
-    
-    
 
-    public Player(String nome, String sobrenome, String cpf, String posicao, float salario, Eddress eddress) {
+    public Player(String nome, String sobrenome, String cpf, String posicao) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.posicao = posicao;
-        this.salario = salario;
+    }
+    
+    
+
+    public Player(String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.posicao = posicao;
+        this.salary = salary;
+        this.coach = coach;
         this.eddress = eddress;
     }
-    
-    
 
-    public Player(String nome, String sobrenome, String cpf, String posicao, float salario) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.cpf = cpf;
-        this.posicao = posicao;
-        this.salario = salario;
-    }
-    
     public void playerInform() {
         System.out.println("CODIGO: " + this.id);
         System.out.println("NOME: " + this.nome);
         System.out.println("SOBRENOME: " + this.sobrenome);
         System.out.println("CPF: " + this.cpf);
         System.out.println("POSICAO: " + this.posicao);
-        System.out.println("SALARIO: " + this.salario);
     }
       
     public Long getId() {
@@ -119,12 +112,20 @@ public class Player implements Serializable {
         this.posicao = posicao;
     }
 
-    public float getSalario() {
-        return salario;
+    public Salary getSalary() {
+        return salary;
     }
 
-    public void setSalario(float salario) {
-        this.salario = salario;
+    public void setSalary(Salary salary) {
+        this.salary = salary;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
     }
 
     public Eddress getEddress() {
@@ -137,13 +138,8 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", posicao=" + posicao + ", salario=" + salario + ", eddress=" + eddress + '}';
+        return "Player{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", posicao=" + posicao + ", salary=" + salary + ", coach=" + coach + ", eddress=" + eddress + '}';
     }
-    
-    
-
-    
-    
     
     
 }

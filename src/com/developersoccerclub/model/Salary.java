@@ -1,10 +1,23 @@
 package com.developersoccerclub.model;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
  *
  * @author leandro
  */
-public class Salary {
+@Entity
+@Table(name = "tbsalary")
+@SequenceGenerator(name = "seq_tbsalary", sequenceName = "seq_tbsalary", initialValue = 1)
+public class Salary implements Serializable {
+    @Id
+    @GeneratedValue(generator = "seq_tbsalary", strategy = GenerationType.SEQUENCE)
     private Long id;
     private float valor;
     // value = 8% of salary

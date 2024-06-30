@@ -41,4 +41,35 @@ public static void main(String[] args) {
     }
 ...
 
+... 002
+public static void main(String[] args) {
+         
+        Scanner input = new Scanner(System.in);
+        PrintStream so = System.out;
+        
+        so.println("INFORME OS DADOS DO JOGADOR");
+        so.print("NOME: ");
+        String nome = input.nextLine();
+        so.print("SOBRENOME: ");
+        String sobrenome = input.nextLine();
+        so.print("CPF: ");
+        String cpf = input.nextLine();
+        so.print("POSICAO: ");
+        String posicao = input.nextLine();
+        so.print("SALARIO: ");
+        Float salario = input.nextFloat();
+        
+        Player player = new Player(nome, sobrenome, cpf, posicao, salario);
+                
+        EntityManager em = JpaUtil.openConnection();
+        em.getTransaction().begin();
+                
+            em.persist(player);
+                
+        em.getTransaction().commit();
+        
+        JpaUtil.closeConnection();
+    }
+...
+
 */

@@ -1,10 +1,23 @@
 package com.developersoccerclub.model;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
  *
  * @author leandro
  */
-public class Eddress {
+@Entity
+@Table(name = "tbaddress")
+@SequenceGenerator(name = "seq_tbaddress", sequenceName = "seq_tbaddress", initialValue = 1)
+public class Eddress implements Serializable {
+    @Id
+    @GeneratedValue(generator = "seq_tbaddress", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String rua;
     private int numero;
