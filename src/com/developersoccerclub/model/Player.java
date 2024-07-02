@@ -1,6 +1,7 @@
 package com.developersoccerclub.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -30,10 +33,12 @@ public class Player implements Serializable {
     private Coach coach;
     @OneToOne
     private Eddress eddress;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateRegister;
     
     public Player() {}
 
-    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress) {
+    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress, Date dateRegister) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -42,16 +47,18 @@ public class Player implements Serializable {
         this.salary = salary;
         this.coach = coach;
         this.eddress = eddress;
+        this.dateRegister = dateRegister;
     }
 
-    public Player(String nome, String sobrenome, String cpf, String posicao) {
+    public Player(String nome, String sobrenome, String cpf, String posicao, Date dateRegister) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.posicao = posicao;
+        this.dateRegister = dateRegister;
     }
     
-    public Player(String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress) {
+    public Player(String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress, Date dateRegister) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -59,6 +66,7 @@ public class Player implements Serializable {
         this.salary = salary;
         this.coach = coach;
         this.eddress = eddress;
+        this.dateRegister = dateRegister;
     }
 
     public void playerInform() {
@@ -133,10 +141,17 @@ public class Player implements Serializable {
         this.eddress = eddress;
     }
 
+    public Date getDateRegister() {
+        return dateRegister;
+    }
+
+    public void setDateRegister(Date dateRegister) {
+        this.dateRegister = dateRegister;
+    }
+
     @Override
     public String toString() {
-        return "Player{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", posicao=" + posicao + ", salary=" + salary + ", coach=" + coach + ", eddress=" + eddress + '}';
+        return "Player{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", posicao=" + posicao + ", salary=" + salary + ", coach=" + coach + ", eddress=" + eddress + ", dateRegister=" + dateRegister + '}';
     }
-    
     
 }
