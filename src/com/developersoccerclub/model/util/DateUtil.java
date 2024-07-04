@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class DateUtil {
     public static Date StringToDate(String dataInformada) throws ParseException{
-        SimpleDateFormat sdf = new SimpleDateFormat(dataInformada);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date dataFormatada = sdf.parse(dataInformada);
         return dataFormatada;
     }

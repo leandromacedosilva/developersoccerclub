@@ -4,8 +4,10 @@ import com.developersoccerclub.model.Coach;
 import com.developersoccerclub.model.Eddress;
 import com.developersoccerclub.model.Player;
 import com.developersoccerclub.model.Salary;
+import com.developersoccerclub.model.util.DateUtil;
 import com.developersoccerclub.model.util.JpaUtil;
 import java.io.PrintStream;
+import java.text.ParseException;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
 
@@ -14,7 +16,7 @@ import javax.persistence.EntityManager;
  * @author itccolina
  */
 public class InsertDataInTable {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         
         
         Scanner input = new Scanner(System.in);
@@ -66,8 +68,11 @@ public class InsertDataInTable {
         
         so.print("POSICAO: ");
         String posicao = input.nextLine();
+        
+        so.print("DATA: ");
+        String dateRegister = input.nextLine();
                 
-        Player player = new Player(nome, sobrenome, cpf, posicao);
+        Player player = new Player(nome, sobrenome, cpf, posicao, DateUtil.StringToDate(dateRegister));
         player.setSalary(salary);
         //player.setCoach(coach);
         player.setEddress(eddress);
