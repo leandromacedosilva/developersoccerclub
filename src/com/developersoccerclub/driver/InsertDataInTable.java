@@ -18,7 +18,6 @@ import javax.persistence.EntityManager;
 public class InsertDataInTable {
     public static void main(String[] args) throws ParseException {
         
-        
         Scanner input = new Scanner(System.in);
         PrintStream so = System.out;
         

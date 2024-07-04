@@ -9,6 +9,7 @@ select * from tbsalary;
 select * from tbcoach;
 --------------------------------------------------
 stop in
+ Mapeando Pessoa e Endereço @OneToOne , @OneToMany
 (JPQL) consultas por data usando BETWEEN
 (JPQL) Consultando atividade por atributo no BD
 -----------------------------------------------------------
