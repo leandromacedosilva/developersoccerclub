@@ -22,10 +22,16 @@ public class RegisterAssociatCoachAndPlayers {
         
         Player player01 = new Player("SAMUEL", "A M SILVA", "474.728.255-73", "98.876.22-92", DateUtil.StringToDate("07/09/2011"));
         Player player02 = new Player("ARTHUR", "A M SILVA", "174.398.265-92", "27.876.58-91", DateUtil.StringToDate("03/03/2020"));
+        Player player03 = new Player("LEANDRO", "M SILVA", "009.188.365-11", "95.876.96-09", DateUtil.StringToDate("17/08/2019"));
+        Player player04 = new Player("RODRIGO", "FEITOSA", "660.250.580-64", "02.676.18-73", DateUtil.StringToDate("14/05/2021"));
+        Player player05 = new Player("KALBI", "OLIVEIRA", "174.398.265-92", "25.732.64-67", DateUtil.StringToDate("08/09/2022"));
         
         List<Player> players = new ArrayList<>();
         players.add(player01);
         players.add(player02);
+        players.add(player03);
+        players.add(player04);
+        players.add(player05);
         
         so.println("INFORME OS DADOS DO TECNICO");
         so.print("NOME: ");
