@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbaddress")
 @SequenceGenerator(name = "seq_tbaddress", sequenceName = "seq_tbaddress", initialValue = 1)
-public class Eddress implements Serializable {
+public class Address implements Serializable {
     @Id
     @GeneratedValue(generator = "seq_tbaddress", strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -26,9 +26,9 @@ public class Eddress implements Serializable {
     private String uf;
     private String pais;
     
-    public Eddress() {}
+    public Address() {}
 
-    public Eddress(Long id, String rua, int numero, String bairro, String cidade, String uf, String pais) {
+    public Address(Long id, String rua, int numero, String bairro, String cidade, String uf, String pais) {
         this.id = id;
         this.rua = rua;
         this.numero = numero;
@@ -38,7 +38,7 @@ public class Eddress implements Serializable {
         this.pais = pais;
     }
 
-    public Eddress(String rua, int numero, String bairro, String cidade, String uf, String pais) {
+    public Address(String rua, int numero, String bairro, String cidade, String uf, String pais) {
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -105,7 +105,7 @@ public class Eddress implements Serializable {
 
     @Override
     public String toString() {
-        return "Eddress{" + "id=" + id + ", rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + ", pais=" + pais + '}';
+        return "Address{" + "id=" + id + ", rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + ", pais=" + pais + '}';
     }
     
     

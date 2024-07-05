@@ -1,6 +1,5 @@
 package com.developersoccerclub.driver;
 
-import com.developersoccerclub.model.Coach;
 import com.developersoccerclub.model.Address;
 import com.developersoccerclub.model.Player;
 import com.developersoccerclub.model.Salary;
@@ -8,17 +7,16 @@ import com.developersoccerclub.model.util.DateUtil;
 import com.developersoccerclub.model.util.JpaUtil;
 import java.io.PrintStream;
 import java.text.ParseException;
-import java.util.List;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
 
 /**
  *
- * @author itccolina
+ * @author leandro
  */
-public class InsertDataInTable {
+public class RegisterAssociatPlayerAddressAndSalary {
     public static void main(String[] args) throws ParseException {
-        
+        //
         Scanner input = new Scanner(System.in);
         PrintStream so = System.out;
         
@@ -37,7 +35,7 @@ public class InsertDataInTable {
         so.print("PAIS: ");
         String pais = input.nextLine();
         
-        Address eddress = new Address(rua, numero, bairro, cidade, uf, pais);
+        Address address = new Address(rua, numero, bairro, cidade, uf, pais);
         
         so.println("INFORME OS DADOS DO SALARIO");
         so.print("SALARIO: ");
@@ -75,31 +73,14 @@ public class InsertDataInTable {
         Player player = new Player(nome, sobrenome, cpf, posicao, DateUtil.StringToDate(dateRegister));
         player.setSalary(salary);
         //player.setCoach(coach);
-        player.setEddress(eddress);
-        
-        so.println("INFORME OS DADOS DO TECNICO");
-        so.print("NOME: ");
-        String nome1 = input.nextLine();
-        so.print("SOBRENOME: ");
-        String sobrenome1 = input.nextLine();
-        so.print("CPF: ");
-        String cpf1 = input.nextLine();
-        so.print("RG: ");
-        String rg = input.nextLine();
-                
-        Coach coach = new Coach(nome1, sobrenome1, cpf1, rg);
-        coach.setSalary(salary);
-        coach.setPlayers((List<Player>) player);
-        coach.setEddress(eddress);
-        
+        player.setEddress(address);
+        //
         EntityManager em = JpaUtil.openConnection();
         em.getTransaction().begin();
-        em.persist(eddress);
-        em.persist(salary);
+        //em.persist(address);
+        //em.persist(salary);
         em.persist(player);
-        em.persist(coach);
         em.getTransaction().commit();
-        
         JpaUtil.closeConnection();
     }
 }
