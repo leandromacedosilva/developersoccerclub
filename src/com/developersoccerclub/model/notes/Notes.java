@@ -9,11 +9,31 @@ select * from tbsalary;
 select * from tbcoach;
 --------------------------------------------------
 stop in
+ Persistindo Pessoa e Endereço @OneToOne
  Mapeando Pessoa e Endereço @OneToOne , @OneToMany
 (JPQL) consultas por data usando BETWEEN
 (JPQL) Consultando atividade por atributo no BD
 -----------------------------------------------------------
 
+..............................................................
+Player         
+Address
+Coach
+Salary
+
+UM JOGADOR(Player) TEM UM ENDERECO(Address) -> @OneToOne
+UM JOGADOR(Player) TEM UM SALARIO(Salary) -> @OneToOne
+UM JOGADOR(Player) TEM UM TECNICO(Coach) -> @OneToOne
+
+UM TECNICO(Coach) TEM VARIOS JOGADORES(Players) -> @OneToMany
+UM TECNICO(Coach) TEM UM ENDERECO(Address) -> @OneToOne
+UM TECNICO(Coach) TEM UM SALARIO(Salary) -> @OneToOne
+
+OBS.: EXISTE UM RECURSO IMPORTANTE EM JPA QUE E O CASCADE - 
+CASCATA. ESTE RECURSO DA ESPECIFICACAO JPA NOS DA A COMODIDADE
+DE NAO PERSISTIRMOS AS CLASSES FILHAS. BASTA, PORNTATO, 
+PERSISTIR A CLASSE PAI.
+...............................................................
 code part in Java Lang
 ... 001
 public static void main(String[] args) {

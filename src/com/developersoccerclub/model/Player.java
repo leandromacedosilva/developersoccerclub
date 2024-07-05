@@ -2,6 +2,7 @@ package com.developersoccerclub.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,18 +28,18 @@ public class Player implements Serializable {
     private String sobrenome;
     private String cpf;
     private String posicao;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Salary salary;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Coach coach;
-    @OneToOne
-    private Eddress eddress;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address eddress;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateRegister;
     
     public Player() {}
 
-    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress, Date dateRegister) {
+    public Player(Long id, String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Address eddress, Date dateRegister) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -58,7 +59,7 @@ public class Player implements Serializable {
         this.dateRegister = dateRegister;
     }
     
-    public Player(String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Eddress eddress, Date dateRegister) {
+    public Player(String nome, String sobrenome, String cpf, String posicao, Salary salary, Coach coach, Address eddress, Date dateRegister) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -133,11 +134,11 @@ public class Player implements Serializable {
         this.coach = coach;
     }
 
-    public Eddress getEddress() {
+    public Address getEddress() {
         return eddress;
     }
 
-    public void setEddress(Eddress eddress) {
+    public void setEddress(Address eddress) {
         this.eddress = eddress;
     }
 
