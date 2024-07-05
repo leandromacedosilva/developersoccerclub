@@ -20,45 +20,8 @@ public class RegisterAssociatCoachAndPlayers {
         Scanner input = new Scanner(System.in);
         PrintStream so = System.out;
         
-        so.println("INFORME OS DADOS DO JOGADOR");
-        
-        so.print("NOME: ");
-        input.nextLine();
-        String nome = input.nextLine();
-        
-        so.print("SOBRENOME: ");
-        String sobrenome = input.nextLine();
-        
-        so.print("CPF: ");
-        String cpf = input.nextLine();
-        
-        so.print("POSICAO: ");
-        String posicao = input.nextLine();
-        
-        so.print("DATA: ");
-        String dateRegister = input.nextLine();
-                
-        Player player01 = new Player(nome, sobrenome, cpf, posicao, DateUtil.StringToDate(dateRegister));
-        
-        so.println("INFORME OS DADOS DO JOGADOR");
-        
-        so.print("NOME: ");
-        input.nextLine();
-        String nome1 = input.nextLine();
-        
-        so.print("SOBRENOME: ");
-        String sobrenome1 = input.nextLine();
-        
-        so.print("CPF: ");
-        String cpf1 = input.nextLine();
-        
-        so.print("POSICAO: ");
-        String posicao1 = input.nextLine();
-        
-        so.print("DATA: ");
-        String dateRegister1 = input.nextLine();
-                
-        Player player02 = new Player(nome1, sobrenome1, cpf1, posicao1, DateUtil.StringToDate(dateRegister1));
+        Player player01 = new Player("SAMUEL", "A M SILVA", "474.728.255-73", "98.876.22-92", DateUtil.StringToDate("07/09/2011"));
+        Player player02 = new Player("ARTHUR", "A M SILVA", "174.398.265-92", "27.876.58-91", DateUtil.StringToDate("03/03/2020"));
         
         List<Player> players = new ArrayList<>();
         players.add(player01);
@@ -79,9 +42,13 @@ public class RegisterAssociatCoachAndPlayers {
         
         EntityManager em = JpaUtil.openConnection();
         em.getTransaction().begin();
+        
         for(Player p : players) {
             em.persist(p);
         }
+        
+        em.persist(coach);
+        
         em.getTransaction().commit();
         JpaUtil.closeConnection();
     }
