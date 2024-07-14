@@ -7,8 +7,23 @@ select * from tbplayer;
 select * from tbaddress;
 select * from tbsalary;
 select * from tbcoach;
+select * from tbreferee;
+
+select 
+ nome
+,sobrenome
+,cpf
+,rua
+,cidade
+,bairro
+from tbreferee INNER JOIN tbaddress ON tbreferee.id = 1;
+
+select * from tbcontact; 
+
+drop table tbhardware_tbprovider;
 --------------------------------------------------
 stop in
+ Persistindo Pessoa e Atividade @OneToMany
  Persistindo Pessoa e Endereço @OneToOne
  Mapeando Pessoa e Endereço @OneToOne , @OneToMany
 (JPQL) consultas por data usando BETWEEN

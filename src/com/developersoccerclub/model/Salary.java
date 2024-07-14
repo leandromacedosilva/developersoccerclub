@@ -52,6 +52,8 @@ public class Salary implements Serializable {
         this.cbf = cbf;
     }
     
+    
+    
     public void descontos() {
         //INSS 8%
         System.out.println("VALOR DESCONTO INSS: " + (this.valor * 0.08));

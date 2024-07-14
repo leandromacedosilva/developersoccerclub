@@ -4,7 +4,9 @@ package com.developersoccerclub.model;
  *
  * @author itccolina
  */
+
 public class People {
+
     private String nome;
     private String sobrenome;
     private String cpf;

@@ -6,6 +6,8 @@
     <class>com.developersoccerclub.model.Coach</class>
     <class>com.developersoccerclub.model.Salary</class>
     <class>com.developersoccerclub.model.Address</class>
+    <class>com.developersoccerclub.model.Contact</class>
+    <class>com.developersoccerclub.model.Referee</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/storagedb"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
